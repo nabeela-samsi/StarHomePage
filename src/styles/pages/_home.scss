@@ -1,0 +1,429 @@
+@use "../abstracts/mixins";
+@use "../abstracts/colors";
+
+.main{
+    &__pinned-section{
+        display: grid;
+        gap: 0.6em;
+        padding: 0.6em;
+        grid-template-columns: repeat(4,1fr);
+        grid-template-rows: 6.25em 6.25em 6.25em 6.25em;
+        grid-template-areas:
+            "item1 item1 item2 item4"
+            "item1 item1 item2 item4"
+            "item1 item1 item3 item5"
+            "item1 item1 item3 item5"
+        ;
+
+        &__item1{
+            @include mixins.style-bg-images(
+                item1,
+                colors.$image-bg1-color,
+                "../../src/images/image1.jpeg"
+            )
+        }
+
+        &__item2{
+            @include mixins.style-bg-images(
+                item2,
+               colors.$image-bg2-color,
+                "../../src/images/image2.jpeg"
+            )
+        }
+
+        &__item3{
+            @include mixins.style-bg-images(
+                item3,
+                colors.$image-bg3-color,
+                "../../src/images/image3.jpeg"
+            )
+        }
+
+        &__item4{
+            grid-area: item4;
+            background-color: colors.$image-bg4-color;
+            border-radius: 1.6em;
+        }
+
+        &__item5{
+            @include mixins.style-bg-images(
+                item5,
+                colors.$image-bg5-color,
+                "../../src/images/image4.jpeg"
+            )
+        }
+    }
+
+    &__loop-section{
+        display: grid;
+        gap: 3.125em;
+        padding: 0.625em;
+        grid-template-columns: repeat(6,1fr);
+        grid-template-rows: repeat(26,6.25em);
+        grid-template-areas:
+            "loop1 loop1 loop1 loop1 loop1 loop1"
+            "loop2 loop2 loop2 loop2 loop2 loop2"
+            "loop3 loop3 loop3 loop3 loop3 loop3"
+            "loop4 loop4 loop4 loop4 loop4 loop4"
+            "loop5 loop5 loop5 loop6 loop6 loop6"
+            "loop7 loop7 loop8 loop8 loop9 loop9"
+            ". loop10 loop10 loop10 loop10 ."
+        ;
+
+        &__loop1{
+            @include mixins.style-bg-images(
+                loop1,
+                colors.$image-bg1-color,
+                "../../src/images/image5.jpeg"
+            );
+            grid-row: 1/span 5;
+            background-position: center;
+        }
+
+        &__loop2{
+            @include mixins.style-bg-images(
+                loop2,
+               colors.$image-bg4-color,
+                "../../src/images/image6.jpeg"
+            );
+            grid-row: 6 / span 5;
+            background-position: center;
+        }
+
+        &__loop3{
+            @include mixins.style-bg-images(
+                loop3,
+                colors.$image-bg1-color,
+                "../../src/images/image7.jpeg"
+            );
+            grid-row: 11 / span 5;
+            background-position: center;
+        }
+
+        &__loop4{
+            grid-area: loop4;
+            text-align: center;
+            grid-row: 16;
+        }
+
+        &__loop5{
+            @include mixins.style-bg-images(
+                loop5,
+               colors.$image-bg5-color,
+                "../../src/images/image8.jpeg"
+            );
+            grid-row: 17 / span 4;
+            background-position: center;
+        }
+
+        &__loop6{
+            @include mixins.style-bg-images(
+                loop6,
+                colors.$image-bg2-color,
+                "../../src/images/image9.jpeg"
+            );
+            grid-row: 17 / span 4;
+            background-position: center;
+        }
+
+        &__loop7{
+            @include mixins.style-bg-images(
+                loop7,
+                colors.$image-bg1-color,
+                "../../src/images/image10.jpeg"
+            );
+            grid-row: 21 / span 4;
+            background-position: center;
+        }
+
+        &__loop8{
+            @include mixins.style-bg-images(
+                loop8,
+                colors.$image-bg5-color,
+                "../../src/images/image11.jpeg"
+            );
+            grid-row: 21 / span 4;
+            background-position: center;
+        }
+
+        &__loop9{
+            @include mixins.style-bg-images(
+                loop9,
+                colors.$image-bg4-color,
+                "../../src/images/image12.jpeg"
+            );
+            grid-row: 21 / span 4;
+            background-position: center;
+        }
+
+        &__loop10{
+            background-color: colors.$button-color;
+            grid-area: loop10;
+            text-align: center;
+            justify-content: center;
+            grid-row: 25;
+            border-radius: 1.6em;
+            padding-top: 1.25em;
+        }
+    }
+
+    &__subscribe--form{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        margin-left: 30%;
+        width: 46%;
+
+        &__title{
+            font-size: 3.125em;
+            margin-bottom: 0;
+        }
+
+        &__ityped{
+            font-size: 1.25em;
+            font-weight: bold;
+        }
+
+        &__email{
+            width: 80%;
+            box-sizing: border-box;
+            border: none;
+            border-bottom: 0.125em solid colors.$primary-color;
+            background-color: colors.$bg-color;
+            text-align: center;
+        }
+
+        &__button{
+            margin-top: 1.6em;
+            box-sizing: border-box;
+            height: 6em;
+            width: 10em;
+            background-color: colors.$button-color;
+            border-radius: 1.6em;
+            color: colors.$primary-color;
+            margin-bottom: 10em;
+        }
+    }
+}
+
+.item1__content{
+    @include mixins.style-item-content(colors.$secondary-content-color);
+    &__pinned{
+        @include mixins.style-item-pinned(colors.$primary-pin-color)
+    }
+    &__quote {
+        @include mixins.style-item-quote(2.625em);
+    }
+}
+
+.item2__content{
+    @include mixins.style-item-content(colors.$secondary-content-color);
+    &__pinned{
+        @include mixins.style-item-pinned(colors.$primary-pin-color);
+    }
+    &__quote {
+        @include mixins.style-item-quote(1.6em);
+    }
+}
+
+.item3__content{
+    @include mixins.style-item-content(colors.$secondary-content-color);
+    &__pinned{
+        @include mixins.style-item-pinned(colors.$primary-pin-color);
+    }
+    &__quote {
+        @include mixins.style-item-quote(1.6em);
+    }
+}
+
+.item4__content{
+    @include mixins.style-item-content(colors.$primary-content-color);
+    padding-top: 0.5em;
+    padding-left: 0.5em;
+    &__pinned{
+        @include mixins.style-item-pinned(colors.$secondary-pin-color);
+        background-color: colors.$secondary-pin-color;
+    }
+    &__quote {
+        @include mixins.style-item-quote(1.6em);
+    }
+}
+
+.item5__content{
+    @include mixins.style-item-content(colors.$primary-content-color);
+    padding-bottom: 0.5em;
+    &__pinned{
+        @include mixins.style-item-pinned(colors.$secondary-pin-color);
+    }
+    &__quote {
+        @include mixins.style-item-quote(1.6em);
+    }
+}
+
+.loop1__content{
+    @include mixins.style-loop-body();
+
+    &__pin1{
+        @include mixins.style-loop-pins(colors.$secondary-pin-color);
+    }
+
+    &__pin2{
+        @include mixins.style-loop-pins(colors.$secondary-pin-color);
+    }
+
+    &__quote{
+        @include mixins.style-loop-quote(2.9em);
+    }
+}
+
+.loop2__content{
+    @include mixins.style-loop-body();
+    color: colors.$primary-content-color;
+
+    &__pin1{
+        @include mixins.style-loop-pins(colors.$primary-pin-color);
+    }
+
+    &__pin2{
+        @include mixins.style-loop-pins(colors.$primary-pin-color);
+    }
+
+    &__quote{
+        @include mixins.style-loop-quote(2.9em);
+    }
+
+    &__line{
+        @include mixins.style-loop-line();
+    }
+
+    &__excerpt{
+        font-size: 1.25em;
+    }
+}
+
+.loop3__content{
+    @include mixins.style-loop-body();
+
+    &__pin1{
+        @include mixins.style-loop-pins(colors.$secondary-pin-color);
+    }
+
+    &__pin2{
+        @include mixins.style-loop-pins(colors.$secondary-pin-color);
+    }
+
+    &__quote{
+        @include mixins.style-loop-quote(2.9em);
+    }
+}
+
+
+.loop5__content{
+    @include mixins.style-loop-body();
+    color: colors.$primary-content-color;
+
+    &__pin1{
+        @include mixins.style-loop-pins(colors.$primary-pin-color);
+    }
+
+    &__quote{
+        @include mixins.style-loop-quote(2.9em);
+    }
+
+    &__line{
+        @include mixins.style-loop-line();
+    }
+
+    &__excerpt{
+        font-size: 1.25em;
+    }
+}
+
+.loop6__content{
+    @include mixins.style-loop-body();
+
+    &__pin1{
+        @include mixins.style-loop-pins(colors.$secondary-pin-color);
+    }
+
+    &__pin2{
+        @include mixins.style-loop-pins(colors.$secondary-pin-color);
+    }
+
+    &__pin3{
+        @include mixins.style-loop-pins(colors.$secondary-pin-color);
+    }
+
+    &__quote{
+        @include mixins.style-loop-quote(2.9em);
+    }
+}
+
+.loop7__content{
+    @include mixins.style-loop-body();
+
+    &__pin1{
+        @include mixins.style-loop-pins(colors.$secondary-pin-color);
+    }
+
+    &__pin2{
+        @include mixins.style-loop-pins(colors.$secondary-pin-color);
+    }
+
+    &__quote{
+        @include mixins.style-loop-quote(2.5em);
+    }
+}
+
+.loop8__content{
+    @include mixins.style-loop-body();
+    color: colors.$primary-content-color;
+
+    &__pin1{
+        @include mixins.style-loop-pins(colors.$primary-pin-color);
+    }
+
+    &__pin2{
+        @include mixins.style-loop-pins(colors.$primary-pin-color);
+    }
+
+    &__quote{
+        @include mixins.style-loop-quote(2.5em);
+    }
+
+    &__line{
+        @include mixins.style-loop-line();
+    }
+
+    &__excerpt{
+        font-size: 1.25em;
+    }
+}
+
+.loop9__content{
+    @include mixins.style-loop-body();
+    color: colors.$primary-content-color;
+
+    &__pin1{
+        @include mixins.style-loop-pins(colors.$primary-pin-color);
+    }
+
+    &__pin2{
+        @include mixins.style-loop-pins(colors.$primary-pin-color);
+    }
+
+    &__quote{
+        @include mixins.style-loop-quote(2.5em);
+    }
+
+    &__line{
+        @include mixins.style-loop-line();
+    }
+
+    &__excerpt{
+        font-size: 1.25em;
+    }
+}
+

@@ -1,0 +1,79 @@
+@use "./colors";
+
+@mixin nav-dot($is-active) {
+    position: absolute;
+    background-color: if($is-active, colors.$primary-color, colors.$nav-dot-color);
+    height: 0.4em;
+    width: 0.4em;
+    border-radius: 100%;
+    top: -0.9em;
+    content: "";
+    left: calc(50% );
+}
+
+@mixin style-bg-images($areaType,$shades,$img) {
+    grid-area: $areaType;
+    background-image: linear-gradient(
+            $shades,
+            $shades
+        ),
+        url($img);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size:cover;
+    background-repeat: no-repeat;
+    border-radius: 1.6em;
+}
+
+@mixin style-item-content($color){
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 90%;
+    width: 90%;
+    color: $color
+}
+
+@mixin style-item-pinned($color) {
+    background-color: $color;
+        height: 1.9em;
+        width: 5em;
+        border-radius: 1.6em;
+        text-align: center;
+        padding-top: 0.5em;
+}
+
+@mixin style-item-quote($size) {
+    font-size: $size;
+    font-weight: bold;
+}
+
+@mixin style-loop-body(){
+    display: flex;
+    flex-direction: column;
+    height: 60%;
+    width: 80%;
+    justify-content: center;
+}
+
+@mixin style-loop-pins($color){
+    border: 0.125em solid $color;
+    border-radius: 1.6em;
+    height: 3em;
+    width: 1em;
+    font-size: 1.125em;
+    padding: 0.25em;
+    margin: 0.4em;
+}
+
+@mixin style-loop-quote($size){
+    font-weight: bolder;
+    font-size: $size;
+}
+
+@mixin style-loop-line(){
+    justify-content: flex-start;
+    border-top: 0.125em solid;
+    width: 10%;
+}

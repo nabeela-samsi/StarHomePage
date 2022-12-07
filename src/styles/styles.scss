@@ -1,0 +1,17 @@
+@use "layout/header";
+@use "layout/footer";
+
+@use "pages/home";
+
+@use "abstracts/colors";
+
+html {
+    background-color: colors.$bg-color;
+    color: colors.$primary-color;
+}
+
+body{
+    text-align: left;
+    width: 80em;
+    margin: 0 auto;
+}

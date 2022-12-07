@@ -1,0 +1,29 @@
+@use "../abstracts/mixins";
+@use "../abstracts/colors";
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__nav{
+        display: flex;
+        justify-content: center;
+
+        &__is-active::before{
+           @include mixins.nav-dot(true);
+        }
+    }
+
+    a{
+        display: inline-block;
+        position: relative;
+        padding-right: 1.9em;
+        text-decoration: none;
+        color: colors.$primary-color;
+    }
+
+    a:hover::before{
+        @include mixins.nav-dot(false);
+    }
+}

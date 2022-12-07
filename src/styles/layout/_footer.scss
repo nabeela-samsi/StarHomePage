@@ -1,0 +1,37 @@
+@use "../abstracts/mixins";
+@use "../abstracts/colors";
+
+.footer{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+
+    &__nav{
+        display: flex;
+        justify-content: center;
+
+        &__is-active::before{
+           @include mixins.nav-dot(true);
+        }
+    }
+
+    a{
+        display: inline-block;
+        position: relative;
+        padding-right: 1.9em;
+        text-decoration: none;
+        color:colors.$primary-color;
+    }
+
+    a:hover::before{
+        @include mixins.nav-dot(false);
+    }
+}
+
+break{
+    flex-basis: 100%;
+    height: 0;
+    width: 0;
+    overflow: hidden;
+}
