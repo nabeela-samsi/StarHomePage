@@ -1,20 +1,19 @@
-# CSS/SASS , Grid , Flexbox Assignment
+# Welcome to simple page
 
-Refer to this [link](https://preview.themeforest.net/item/maido-multipurpose-ghost-blog-theme/full_screen_preview/24837109?_ga=2.259990478.570486835.1654146705-2133876429.1654146705)(see 'Dark version') and create a similar webpage
+Welcome to simple web page.
 
-## Requirements (max 4)
+## Tech stack
 
-1. Floating the HTML elements using Flexbox and Grid system
-2. Implementing basic animations as shown in the webpage (hover effect,
-active link styles, typing effect). You can modify the outlook of the effects
-3. Implement you codes, using the platform of your choice (For example, Github Pages), then rewrite README file.
+- HTML
+- SCSS
 
-This assignment only requires 1 static page. No JavaScript needed.
-Font family and text content can be modified as your preferences.
-You can ignore the small buttons/tags/lables in each card. Only
-texts with some styles are enough.
+## Follow the below instructopns
 
-## Bonus points (max 1)
+- run following command in terminal to install npm pacakges
+    - npm i
+- to compile scss into css run following command in terminal
+    - npm run compile
 
-1. Using SASS (either .sass or .scss) for styling
-2. Make use of variables, mixin, extend
+## Demo
+
+To view the site click on the given link [Star](https://nabeela-samsi.github.io/StarHomePage/src/index.html)
