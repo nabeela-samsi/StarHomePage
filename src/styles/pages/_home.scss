@@ -20,7 +20,8 @@
                 item1,
                 colors.$image-bg1-color,
                 "../../src/images/image1.jpeg"
-            )
+            );
+            @include mixins.style-item-anime();
         }
 
         &__item2{
@@ -28,7 +29,8 @@
                 item2,
                colors.$image-bg2-color,
                 "../../src/images/image2.jpeg"
-            )
+            );
+            @include mixins.style-item-anime();
         }
 
         &__item3{
@@ -36,13 +38,15 @@
                 item3,
                 colors.$image-bg3-color,
                 "../../src/images/image3.jpeg"
-            )
+            );
+            @include mixins.style-item-anime();
         }
 
         &__item4{
             grid-area: item4;
             background-color: colors.$image-bg4-color;
             border-radius: 1.6em;
+            @include mixins.style-item-anime();
         }
 
         &__item5{
@@ -50,7 +54,12 @@
                 item5,
                 colors.$image-bg5-color,
                 "../../src/images/image4.jpeg"
-            )
+            );
+            @include mixins.style-item-anime();
+        }
+
+        &__item1:hover, &__item2:hover, &__item3:hover, &__item4:hover, &__item5:hover{
+            transform: translateY(-0.1875em);
         }
     }
 
@@ -77,7 +86,7 @@
                 "../../src/images/image5.jpeg"
             );
             grid-row: 1/span 5;
-            background-position: center;
+            @include mixins.style-loop-anime();
         }
 
         &__loop2{
@@ -87,7 +96,7 @@
                 "../../src/images/image6.jpeg"
             );
             grid-row: 6 / span 5;
-            background-position: center;
+            @include mixins.style-loop-anime();
         }
 
         &__loop3{
@@ -97,7 +106,7 @@
                 "../../src/images/image7.jpeg"
             );
             grid-row: 11 / span 5;
-            background-position: center;
+            @include mixins.style-loop-anime();
         }
 
         &__loop4{
@@ -113,7 +122,7 @@
                 "../../src/images/image8.jpeg"
             );
             grid-row: 17 / span 4;
-            background-position: center;
+            @include mixins.style-loop-anime();
         }
 
         &__loop6{
@@ -123,7 +132,7 @@
                 "../../src/images/image9.jpeg"
             );
             grid-row: 17 / span 4;
-            background-position: center;
+            @include mixins.style-loop-anime();
         }
 
         &__loop7{
@@ -133,7 +142,7 @@
                 "../../src/images/image10.jpeg"
             );
             grid-row: 21 / span 4;
-            background-position: center;
+            @include mixins.style-loop-anime();
         }
 
         &__loop8{
@@ -143,7 +152,7 @@
                 "../../src/images/image11.jpeg"
             );
             grid-row: 21 / span 4;
-            background-position: center;
+            @include mixins.style-loop-anime();
         }
 
         &__loop9{
@@ -153,7 +162,7 @@
                 "../../src/images/image12.jpeg"
             );
             grid-row: 21 / span 4;
-            background-position: center;
+            @include mixins.style-loop-anime();
         }
 
         &__loop10{
@@ -164,6 +173,15 @@
             grid-row: 25;
             border-radius: 1.6em;
             padding-top: 1.25em;
+            transition: background-color 0.2s;
+        }
+
+        &__loop1:hover, &__loop2:hover, &__loop3:hover, &__loop5:hover, &__loop6:hover, &__loop7:hover, &__loop8:hover, &__loop9:hover{
+            background-size: 105%;
+        }
+
+        &__loop10:hover{
+            background-color: colors.$button-onhover-color;
         }
     }
 
@@ -184,6 +202,9 @@
         &__ityped{
             font-size: 1.25em;
             font-weight: bold;
+            overflow: hidden;
+            animation: type 4s linear infinite;
+            white-space: nowrap;
         }
 
         &__email{
@@ -193,6 +214,7 @@
             border-bottom: 0.125em solid colors.$primary-color;
             background-color: colors.$bg-color;
             text-align: center;
+            color: colors.$primary-color;
         }
 
         &__button{
@@ -204,36 +226,64 @@
             border-radius: 1.6em;
             color: colors.$primary-color;
             margin-bottom: 10em;
+            transition: background-color 0.2s;
         }
+
+        &__button:hover{
+            background-color: colors.$button-onhover-color;
+        }
+    }
+
+    &__description{
+        display: flex;
+        flex-wrap: wrap;
+        position: fixed;
+        font-size: 1.125em;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        max-width: 90vh;
+        transform: rotate(-90deg) translate(-50%,4em);
+        transform-origin: 0 50%;
+        color: colors.$primary-color;
     }
 }
 
 .item1__content{
     @include mixins.style-item-content(colors.$secondary-content-color);
+
     &__pinned{
         @include mixins.style-item-pinned(colors.$primary-pin-color)
     }
-    &__quote {
+
+    &__quote{
         @include mixins.style-item-quote(2.625em);
     }
 }
 
 .item2__content{
     @include mixins.style-item-content(colors.$secondary-content-color);
+
     &__pinned{
         @include mixins.style-item-pinned(colors.$primary-pin-color);
     }
-    &__quote {
+
+    &__quote{
         @include mixins.style-item-quote(1.6em);
     }
 }
 
 .item3__content{
     @include mixins.style-item-content(colors.$secondary-content-color);
+
     &__pinned{
         @include mixins.style-item-pinned(colors.$primary-pin-color);
     }
-    &__quote {
+
+    &__quote{
         @include mixins.style-item-quote(1.6em);
     }
 }
@@ -242,11 +292,13 @@
     @include mixins.style-item-content(colors.$primary-content-color);
     padding-top: 0.5em;
     padding-left: 0.5em;
+
     &__pinned{
         @include mixins.style-item-pinned(colors.$secondary-pin-color);
         background-color: colors.$secondary-pin-color;
     }
-    &__quote {
+
+    &__quote{
         @include mixins.style-item-quote(1.6em);
     }
 }
@@ -254,10 +306,12 @@
 .item5__content{
     @include mixins.style-item-content(colors.$primary-content-color);
     padding-bottom: 0.5em;
+
     &__pinned{
         @include mixins.style-item-pinned(colors.$secondary-pin-color);
     }
-    &__quote {
+
+    &__quote{
         @include mixins.style-item-quote(1.6em);
     }
 }
@@ -427,3 +481,11 @@
     }
 }
 
+@keyframes type{
+    from{
+       width: 0;
+    }
+    to{
+     width: 50%;
+    }
+}

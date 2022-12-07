@@ -1,6 +1,6 @@
 @use "./colors";
 
-@mixin nav-dot($is-active) {
+@mixin nav-dot($is-active){
     position: absolute;
     background-color: if($is-active, colors.$primary-color, colors.$nav-dot-color);
     height: 0.4em;
@@ -8,10 +8,10 @@
     border-radius: 100%;
     top: -0.9em;
     content: "";
-    left: calc(50% );
+    left: calc(50%);
 }
 
-@mixin style-bg-images($areaType,$shades,$img) {
+@mixin style-bg-images($areaType,$shades,$img){
     grid-area: $areaType;
     background-image: linear-gradient(
             $shades,
@@ -35,7 +35,7 @@
     color: $color
 }
 
-@mixin style-item-pinned($color) {
+@mixin style-item-pinned($color){
     background-color: $color;
         height: 1.9em;
         width: 5em;
@@ -44,9 +44,16 @@
         padding-top: 0.5em;
 }
 
-@mixin style-item-quote($size) {
+@mixin style-item-quote($size){
     font-size: $size;
     font-weight: bold;
+}
+
+@mixin style-item-anime(){
+    transition: transform 0.2s;
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
 }
 
 @mixin style-loop-body(){
@@ -76,4 +83,9 @@
     justify-content: flex-start;
     border-top: 0.125em solid;
     width: 10%;
+}
+
+@mixin style-loop-anime(){
+    background-position: center;
+    transition: 0.2s;
 }
