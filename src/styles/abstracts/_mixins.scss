@@ -24,6 +24,7 @@
     background-size:cover;
     background-repeat: no-repeat;
     border-radius: 1.6em;
+    cursor: pointer;
 }
 
 @mixin style-item-content($color){

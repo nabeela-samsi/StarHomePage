@@ -46,6 +46,7 @@
             grid-area: item4;
             background-color: colors.$image-bg4-color;
             border-radius: 1.6em;
+            cursor: pointer;
             @include mixins.style-item-anime();
         }
 
@@ -174,6 +175,7 @@
             border-radius: 1.6em;
             padding-top: 1.25em;
             transition: background-color 0.2s;
+            cursor: pointer;
         }
 
         &__loop1:hover, &__loop2:hover, &__loop3:hover, &__loop5:hover, &__loop6:hover, &__loop7:hover, &__loop8:hover, &__loop9:hover{
@@ -227,6 +229,7 @@
             color: colors.$primary-color;
             margin-bottom: 10em;
             transition: background-color 0.2s;
+            cursor: pointer;
         }
 
         &__button:hover{
